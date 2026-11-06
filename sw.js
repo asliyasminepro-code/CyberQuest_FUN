@@ -1,10 +1,11 @@
 /**
- * CyberQuest — Offline-First Service Worker
- * Pre-caches the full application shell and local datasets for 100% offline gameplay.
- * Zero external dependencies, zero CDN calls.
+ * CyberQuest — Offline-First Service Worker (v7)
+ * Network-First strategy: Always fetches fresh assets when online.
+ * Falls back to Cache Storage when offline.
+ * Immediately claims clients and purges all previous caches.
  */
 
-const CACHE_NAME = 'cyberquest-v3';
+const CACHE_NAME = 'cyberquest-v8';
 
 const PRECACHE_ASSETS = [
   './',
@@ -60,10 +61,11 @@ const PRECACHE_ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -73,6 +75,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
+            console.log('Purging legacy cache:', key);
             return caches.delete(key);
           }
         })
@@ -81,17 +84,13 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+/* NETWORK-FIRST FETCH: Always serve fresh files when online */
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        // Cache dynamic local requests if valid
+    fetch(event.request)
+      .then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -99,13 +98,17 @@ self.addEventListener('fetch', (event) => {
           });
         }
         return networkResponse;
-      });
-    }).catch(() => {
-      // Offline fallback for navigation requests
-      if (event.request.mode === 'navigate') {
-        return caches.match('./index.html');
-      }
-    })
+      })
+      .catch(() => {
+        // Fallback to cache when offline
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          if (event.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+        });
+      })
   );
 });
-

@@ -62,6 +62,7 @@ class CyberQuestApp {
         navigator.serviceWorker.register('./sw.js')
           .then((reg) => {
             console.log('CyberQuest Service Worker active:', reg.scope);
+            reg.update();
           })
           .catch((err) => {
             console.warn('Service Worker registration skipped or failed:', err);

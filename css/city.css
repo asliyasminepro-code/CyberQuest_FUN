@@ -1,156 +1,559 @@
 /* ==========================================================================
-   CyberQuest — CyberCity Interactive Map Stylesheet
+   CyberQuest — CyberCity 2.5D Isometric Interactive Map
+   Polished, stable, miniature 3D adventure game aesthetic.
+   Zero excessive movement • Precise hitboxes • Grounded architectural world.
    ========================================================================== */
 
+/* ============================================================
+   CITY VIEW WRAPPER — Full-bleed immersive hero layout
+   ============================================================ */
 .cq-city-view {
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  padding: var(--space-4);
+  background: radial-gradient(ellipse 100% 80% at 50% 0%, #0d1a3a 0%, #060a16 60%);
+  min-height: calc(100vh - 65px);
+}
+
+/* ============================================================
+   HERO HEADER — Game title with refined gradient
+   ============================================================ */
+.cq-city-view__header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.cq-city-view__title {
+  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #00f0ff 0%, #38bdf8 30%, #c084fc 65%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.3));
+}
+
+.cq-city-view__subtitle {
+  color: rgba(148, 163, 184, 0.9);
+  font-size: clamp(0.82rem, 1.8vw, 1rem);
+  font-weight: 500;
+  margin-top: 0.35rem;
+  letter-spacing: 0.01em;
+}
+
+.cq-city-view__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 0.5rem;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.28);
+  color: #00f0ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.85rem;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+/* ============================================================
+   TACTICAL INTEL BAR — Stable, readable mission reconnaissance
+   ============================================================ */
+.cq-city-tactical-bar {
+  max-width: 1300px;
+  margin: 0.25rem auto 0.5rem;
+  width: calc(100% - 2rem);
+  padding: 0.55rem 1.1rem;
+  background: rgba(11, 18, 34, 0.88);
+  border: 1px solid rgba(0, 240, 255, 0.28);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  position: relative;
+  z-index: 10;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cq-city-tactical-bar--active {
+  border-color: #00f0ff;
+  background: rgba(13, 24, 48, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.15);
+}
+
+.cq-tactical-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.cq-tactical-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.cq-tactical-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cq-tactical-heading {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cq-tactical-desc {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cq-tactical-cta {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CITY MAP CONTAINER — The centrepiece game viewport
+   ============================================================ */
+.cq-city-map-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Soft ambient background depth */
+.cq-city-map-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 500px at 30% 40%, rgba(0, 240, 255, 0.05), transparent),
+    radial-gradient(circle 500px at 70% 60%, rgba(168, 85, 247, 0.05), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scalable Vector Graphics Diorama */
+.cq-city-svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   max-width: 1400px;
+  height: 100%;
+  min-height: 440px;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: visible;
+}
+
+/* ============================================================
+   STABLE INTERACTIVE DISTRICT HOTSPOTS
+   CRITICAL: ZERO position-shifting transforms!
+   Elements remain 100% stable under cursor.
+   ============================================================ */
+.cq-map-district {
+  cursor: pointer;
+  outline: none;
+  transition: filter 0.18s ease;
+  pointer-events: auto;
+}
+
+/* Full coverage hitbox inside each building */
+.cq-district-hitbox {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/* Highlight on Hover — Brightness & Clean Cyan Drop Shadow (NO translateY!) */
+.cq-map-district:hover {
+  filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.85)) brightness(1.18);
+}
+
+.cq-map-district:hover .cq-district-badge-container rect {
+  stroke: #00f0ff;
+  fill: #1a2a48;
+}
+
+/* Keyboard Focus Ring — Accessible and Crisp */
+.cq-map-district:focus-visible {
+  outline: 3px solid #00f0ff;
+  outline-offset: 6px;
+  filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.95)) brightness(1.2);
+}
+
+/* Active / Click Press State — Subtle Flash (NO transform movement!) */
+.cq-map-district:active {
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 1)) brightness(1.3);
+}
+
+/* Central CyBot Plaza Group */
+.cq-cybot-plaza-group {
+  cursor: pointer;
+  outline: none;
+  transition: filter 0.18s ease;
+  pointer-events: auto;
+}
+
+.cq-cybot-plaza-group:hover {
+  filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.8)) brightness(1.15);
+}
+
+.cq-cybot-plaza-group:focus-visible {
+  outline: 3px solid #00f0ff;
+  outline-offset: 8px;
+}
+
+.cq-cybot-plaza-group:active {
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 1)) brightness(1.25);
+}
+
+/* ============================================================
+   COMPLETED DISTRICT — Steady, prestigious emerald aura
+   ZERO floating or bobbing animation!
+   ============================================================ */
+.cq-map-district.is-completed {
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.65)) brightness(1.08);
+}
+
+.cq-map-district.is-completed:hover {
+  filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.95)) brightness(1.22);
+}
+
+/* Stable completion shield badge */
+.cq-map-completion-shield {
+  pointer-events: none;
+}
+
+/* ============================================================
+   STABLE FLOATING TOOLTIP
+   Anchored directly above the active building (pointer-events: none)
+   ============================================================ */
+.cq-city-tooltip {
+  position: absolute;
+  z-index: 9000;
+  background: rgba(10, 15, 30, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.6);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  pointer-events: none; /* Never blocks clicks! */
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  backdrop-filter: blur(10px);
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 240, 255, 0.2);
+}
+
+.cq-city-tooltip--visible {
+  opacity: 1;
+}
+
+.cq-tooltip-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #f8fafc;
+  display: block;
+}
+
+.cq-tooltip-body {
+  font-size: 0.72rem;
+  color: rgba(148, 163, 184, 0.9);
+  display: block;
+}
+
+/* ============================================================
+   PROGRESS RIBBON — Stable mission progression summary
+   ============================================================ */
+.cq-city-progress-ribbon {
+  padding: 0.5rem 1.5rem;
+  background: rgba(10, 14, 23, 0.75);
+  border-top: 1px solid rgba(51, 68, 102, 0.5);
+  border-bottom: 1px solid rgba(51, 68, 102, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.cq-ribbon-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.cq-ribbon-rank {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #00f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.cq-ribbon-progress {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cq-ribbon-label {
+  font-size: 0.72rem;
+  color: rgba(148, 163, 184, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.cq-ribbon-bar {
+  flex: 1;
+  height: 7px;
+  background: rgba(37, 55, 90, 0.6);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(51, 68, 102, 0.5);
+}
+
+.cq-ribbon-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #10b981);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+}
+
+.cq-ribbon-fraction {
+  font-size: 0.72rem;
+  color: #f8fafc;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.cq-ribbon-xp {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fbbf24;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   ACCESSIBLE DIRECTORY LIST NAVIGATION
+   ============================================================ */
+.cq-city-list-nav {
+  padding: 1.25rem 1.5rem 2rem;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
 }
 
-.cq-city-view__header {
-  text-align: center;
-  margin-bottom: var(--space-4);
-}
-
-.cq-city-view__title {
-  font-size: var(--font-size-title);
-  font-weight: 800;
-  margin: 0;
-  background: linear-gradient(90deg, #f8fafc, #00f0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.cq-city-view__subtitle {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-base);
-  margin-top: var(--space-1);
-}
-
-/* Map Viewport Container */
-.cq-city-map-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: radial-gradient(circle at 50% 50%, #151d33 0%, #0a0e17 85%);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), var(--shadow-elevation);
-  overflow: hidden;
-}
-
-/* Embedded SVG styling */
-.cq-city-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Interactive SVG Hotspots */
-.cq-map-district {
-  cursor: pointer;
-  outline: none;
-  transition: transform var(--transition-fast), filter var(--transition-fast);
-}
-
-.cq-map-district:hover {
-  filter: drop-shadow(0 0 12px var(--color-cyan));
-}
-
-.cq-map-district:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 4px;
-}
-
-/* District Pin Beacon */
-.cq-map-beacon {
-  animation: beaconPulse 2s infinite ease-out;
-  transform-origin: center;
-}
-
-/* CyberCity Circuit Glow Lines */
-.cq-city-cable {
-  stroke-dasharray: 8, 8;
-  animation: cableFlow 20s linear infinite;
-}
-
-@keyframes cableFlow {
-  to {
-    stroke-dashoffset: -320;
-  }
-}
-
-/* Accessible List Alternative below Map */
-.cq-city-list-nav {
-  margin-top: var(--space-6);
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4) var(--space-6);
-}
-
 .cq-city-list-nav__title {
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-cyan);
-  margin-bottom: var(--space-3);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgba(148, 163, 184, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.85rem;
 }
 
 .cq-city-list-nav__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-3);
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.65rem;
 }
 
+/* District Quick-Access Card Links */
 .cq-district-card-link {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-3);
-  color: var(--color-text-primary);
+  gap: 0.65rem;
+  padding: 0.65rem 0.9rem;
+  background: rgba(13, 20, 42, 0.75);
+  border: 1px solid rgba(51, 68, 102, 0.6);
+  border-radius: 10px;
+  color: rgba(203, 213, 225, 0.9);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  backdrop-filter: blur(8px);
+  min-height: 52px;
+  position: relative;
 }
 
 .cq-district-card-link:hover {
-  border-color: var(--color-cyan);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
-  text-decoration: none;
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.55);
+  color: #f8fafc;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(0, 240, 255, 0.15);
+}
+
+.cq-district-card-link:focus-visible {
+  outline: 2px solid #00f0ff;
+  outline-offset: 2px;
+}
+
+.cq-district-card-link--completed {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
+.cq-district-card-link--completed:hover {
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.75);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 10px rgba(16, 185, 129, 0.2);
 }
 
 .cq-district-card-link__icon {
-  font-size: 1.8rem;
-  background: var(--color-bg-surface);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2);
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .cq-district-card-link__name {
-  font-weight: 700;
-  font-size: var(--font-size-base);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.2;
 }
 
 .cq-district-card-link__sub {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  color: rgba(148, 163, 184, 0.75);
+  font-weight: 500;
+  margin-top: 1px;
 }
 
 .cq-district-card-link__status {
   margin-left: auto;
-  font-size: 1.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fbbf24;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
+.cq-district-card-link--completed .cq-district-card-link__status {
+  color: #34d399;
+}
+
+/* ============================================================
+   LOADER STATE
+   ============================================================ */
+.cq-city-map-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  color: #00f0ff;
+  font-weight: 600;
+  min-height: 400px;
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   REDUCED MOTION OVERRIDES
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .cq-map-district,
+  .cq-cybot-plaza-group,
+  .cq-district-card-link,
+  .cq-city-tactical-bar {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Adaptations for Tablet & Mobile
+   ============================================================ */
+@media (max-width: 1024px) {
+  .cq-city-map-container { min-height: 360px; }
+  .cq-city-list-nav__grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .cq-city-view__header { padding: 1.2rem 1rem 0.4rem; }
+  .cq-city-tactical-bar { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding: 0.5rem 0.85rem; }
+  .cq-city-map-container { min-height: 300px; }
+  .cq-city-svg { min-height: 300px; }
+  .cq-city-list-nav { padding: 1rem; }
+  .cq-city-list-nav__grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
+  .cq-ribbon-inner { gap: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  .cq-city-map-container { min-height: 240px; }
+  .cq-city-svg { min-height: 240px; }
+  .cq-city-list-nav__grid { grid-template-columns: 1fr 1fr; }
+  .cq-district-card-link__sub { display: none; }
+}
+
+/* ============================================================
+   HIGH CONTRAST OVERRIDES
+   ============================================================ */
+[data-theme="high-contrast"] .cq-district-card-link {
+  border-color: #ffffff;
+  background: #000000;
+  color: #ffffff;
+}
+
+[data-theme="high-contrast"] .cq-district-card-link:hover {
+  background: #001a2c;
+  border-color: #00f0ff;
+}
+
+[data-theme="high-contrast"] .cq-map-district:focus-visible {
+  outline: 4px solid #ffff00;
+}
+
+[data-theme="high-contrast"] .cq-city-tactical-bar {
+  background: #000000;
+  border-color: #ffffff;
+}
