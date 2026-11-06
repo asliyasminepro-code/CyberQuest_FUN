@@ -1,0 +1,156 @@
+/* ==========================================================================
+   CyberQuest — CyberCity Interactive Map Stylesheet
+   ========================================================================== */
+
+.cq-city-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-4);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cq-city-view__header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.cq-city-view__title {
+  font-size: var(--font-size-title);
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(90deg, #f8fafc, #00f0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cq-city-view__subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  margin-top: var(--space-1);
+}
+
+/* Map Viewport Container */
+.cq-city-map-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: radial-gradient(circle at 50% 50%, #151d33 0%, #0a0e17 85%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), var(--shadow-elevation);
+  overflow: hidden;
+}
+
+/* Embedded SVG styling */
+.cq-city-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Interactive SVG Hotspots */
+.cq-map-district {
+  cursor: pointer;
+  outline: none;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.cq-map-district:hover {
+  filter: drop-shadow(0 0 12px var(--color-cyan));
+}
+
+.cq-map-district:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* District Pin Beacon */
+.cq-map-beacon {
+  animation: beaconPulse 2s infinite ease-out;
+  transform-origin: center;
+}
+
+/* CyberCity Circuit Glow Lines */
+.cq-city-cable {
+  stroke-dasharray: 8, 8;
+  animation: cableFlow 20s linear infinite;
+}
+
+@keyframes cableFlow {
+  to {
+    stroke-dashoffset: -320;
+  }
+}
+
+/* Accessible List Alternative below Map */
+.cq-city-list-nav {
+  margin-top: var(--space-6);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+}
+
+.cq-city-list-nav__title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-cyan);
+  margin-bottom: var(--space-3);
+}
+
+.cq-city-list-nav__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cq-district-card-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.cq-district-card-link:hover {
+  border-color: var(--color-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+  text-decoration: none;
+}
+
+.cq-district-card-link__icon {
+  font-size: 1.8rem;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+}
+
+.cq-district-card-link__name {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+
+.cq-district-card-link__sub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.cq-district-card-link__status {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+

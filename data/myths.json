@@ -1,0 +1,59 @@
+[
+  {
+    "id": "myth_1",
+    "claim": "Apple Mac computers and iPhones are completely immune to viruses and malware.",
+    "isTrue": false,
+    "category": "Operating Systems",
+    "explanation": "MYTH! While Apple systems have strong sandboxing, malware (such as Mac stealers, spyware like Pegasus, and rogue apps) actively targets macOS and iOS. No operating system is 100% immune to human error, zero-day vulnerabilities, or malicious downloads."
+  },
+  {
+    "id": "myth_2",
+    "claim": "Opening 'Incognito' or 'Private Browsing' mode makes your browsing activity completely invisible to everyone.",
+    "isTrue": false,
+    "category": "Browser Privacy",
+    "explanation": "MYTH! Incognito mode only prevents your local browser from saving cookies, history, and form data on your device. Your school, internet service provider (ISP), network administrator, and visited websites can still see your IP address and traffic."
+  },
+  {
+    "id": "myth_3",
+    "claim": "Cybercriminals only target multimillion-dollar corporations and governments, not regular teenagers.",
+    "isTrue": false,
+    "category": "Threat Landscape",
+    "explanation": "MYTH! Hackers target teenagers constantly for gaming accounts (rare skins/currency), social media takeovers, credential harvesting, and identity theft (youth clean credit histories are highly prized by fraudsters)."
+  },
+  {
+    "id": "myth_4",
+    "claim": "A public Wi-Fi network at a café or hotel is completely safe as long as it requires a password to connect.",
+    "isTrue": false,
+    "category": "Wi-Fi Security",
+    "explanation": "MYTH! If a café gives the same password to everyone on a chalkboard, any other user connected to that network can capture and analyze broadcast packets from nearby devices unless a VPN is active."
+  },
+  {
+    "id": "myth_5",
+    "claim": "Deleting a post or photo from social media erases it completely and permanently from the internet.",
+    "isTrue": false,
+    "category": "Digital Footprint",
+    "explanation": "MYTH! Search engines, web scrapers, automated archive services (Wayback Machine), and other users taking screenshots preserve content long after you tap delete. The digital footprint is permanent."
+  },
+  {
+    "id": "myth_6",
+    "claim": "Having an antivirus installed means you can click on any link or email attachment without danger.",
+    "isTrue": false,
+    "category": "Defense Hygiene",
+    "explanation": "MYTH! Antivirus cannot prevent you from being tricked into typing your credentials on a fake phishing website, nor can it stop brand-new zero-day exploits before signatures are created. Human vigilance is your primary firewall."
+  },
+  {
+    "id": "myth_7",
+    "claim": "A 16-character passphrase of 4 random common words is far stronger against brute-force attacks than an 8-character complex password like 'P@ssw0rd!'.",
+    "isTrue": true,
+    "category": "Password Math",
+    "explanation": "FACT! Length dominates entropy. An 8-character password has $95^8 \\approx 6.6 \\times 10^{15}$ combinations (cracked in hours by modern GPU clusters), while a 16-character passphrase has thousands of years of mathematical resistance."
+  },
+  {
+    "id": "myth_8",
+    "claim": "If a website shows the green lock icon and 'HTTPS' in the address bar, the business is verified and 100% legitimate.",
+    "isTrue": false,
+    "category": "Web Security",
+    "explanation": "MYTH! HTTPS only proves the connection between you and the server is encrypted. Anyone, including a criminal phishing group, can obtain a free SSL/TLS certificate. Fake phishing sites routinely use HTTPS to look authentic!"
+  }
+]
+

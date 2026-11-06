@@ -1,0 +1,32 @@
+{
+  "greetings": [
+    "Beep boop! Greetings, Agent! I'm CyBot, your cybersecurity tactical companion. Which district shall we protect today?",
+    "Systems operational! CyberCity's firewalls are holding, but we need your keen eyes in the districts.",
+    "Welcome back to CyberQuest HQ! Every mission you complete makes the digital world safer."
+  ],
+  "inactivityPrompt": {
+    "title": "CyBot Sensory Alert",
+    "message": "Are you still with us, Agent? CyberCity needs your defense! Press 'I'm Here!' to continue your mission.",
+    "resumeButton": "I'm Here!",
+    "timeoutNotice": "Event mode reset in: "
+  },
+  "districtBriefings": {
+    "phishing": "Welcome to Mailbox Quarter! Phishing traps lurk in plain sight. Always inspect sender addresses and hover over hyperlinks before deciding!",
+    "password": "Entering the Vault District! Remember, length creates exponential entropy, but brute force isn't the only threat. Master 2FA to seal the vault!",
+    "ethical": "Firewall Fortress ahead! White-hat defenders protect without harming. Make ethical choices that safeguard privacy and uphold digital integrity.",
+    "flaws": "Office Tower scan initialized! Look closely at the physical and digital environment. Real-world vulnerabilities are often hiding in plain view.",
+    "quiz": "Academy Amphitheater ready! Test your full tactical cybersecurity knowledge. Accuracy and streaks earn bonus XP!",
+    "myths": "Stepping into Myth Plaza! Many widespread digital beliefs are dangerous myths. Let's bust them with cold hard facts!",
+    "ai": "AI Lab online! Generative AI is a powerful tool, but deepfakes and data leaks require vigilant defenses. Stay sharp!",
+    "bonus": "Bonus Alley unlocked! Six quick tactical challenges await: Wi-Fi defense, QR traps, permissions, privacy, ciphers, and deepfakes!"
+  },
+  "rankPromotions": {
+    "recruit": "Rank Verified: Recruit. Your cybersecurity journey in CyberCity has officially begun!",
+    "agent": "Promoted to Agent! You've proven your ability to spot basic traps and defend your workstation.",
+    "senior_agent": "Promoted to Senior Agent! Your tactical analytical skills are making a measurable difference across CyberCity.",
+    "expert": "Promoted to Expert! Elite defense instincts unlocked. Only the highest rank remains!",
+    "cyber_guardian": "ALL HAIL THE CYBERGUARDIAN! You have secured every single district and achieved 1500 XP! Claim your official Diploma!"
+  },
+  "resetConfirmation": "All local training data and XP have been reset. Welcome to your fresh start, Recruit!"
+}
+

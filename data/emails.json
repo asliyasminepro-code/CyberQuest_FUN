@@ -1,0 +1,154 @@
+[
+  {
+    "id": "email_1",
+    "sender": "CyberBank Security <security@alert-cyberbank-login.com>",
+    "senderName": "CyberBank Security",
+    "senderAddress": "security@alert-cyberbank-login.com",
+    "subject": "URGENT: Your account has been suspended due to unauthorized activity!",
+    "date": "Today, 09:14 AM",
+    "preview": "We detected an unauthorized login attempt from an unknown device. Verify your credentials immediately...",
+    "body": "<p>Dear Customer,</p><p>We detected an unauthorized login attempt to your CyberBank account from an unrecognized IP address in a different country.</p><p>For your protection, your access has been temporarily restricted. You must verify your identity within <strong>24 hours</strong> or your account will be permanently closed.</p><p style='text-align:center; margin: 20px 0;'><a href='http://verify-cyberbank-identity.com/secure-login' class='simulated-link' data-target='http://verify-cyberbank-identity.com/secure-login' style='background:#ef4444; color:#fff; padding:10px 18px; text-decoration:none; border-radius:6px; display:inline-block; font-weight:bold;'>Verify My Account Now</a></p><p>Thank you for banking with us,<br/>CyberBank Fraud Prevention Unit</p>",
+    "hoverUrl": "http://verify-cyberbank-identity.com/secure-login",
+    "isPhishing": true,
+    "redFlags": [
+      "Artificial urgency ('within 24 hours or account permanently closed')",
+      "Deceptive sender domain ('@alert-cyberbank-login.com' instead of official '@cyberbank.com')",
+      "Hover URL directs to an unverified HTTP link instead of an HTTPS official banking portal",
+      "Generic greeting ('Dear Customer') rather than addressing the account holder by name"
+    ],
+    "explanation": "This is an urgency-based phishing scam designed to induce panic so the victim clicks the fake link and surrenders their banking credentials."
+  },
+  {
+    "id": "email_2",
+    "sender": "School Robotics Club <robotics@oakridge-high.edu>",
+    "senderName": "School Robotics Club",
+    "senderAddress": "robotics@oakridge-high.edu",
+    "subject": "Meeting reminder: Regional Tournament prep this Thursday at 3:30 PM",
+    "date": "Yesterday, 04:22 PM",
+    "preview": "Hey team! A quick reminder that our workshop meets this Thursday in Room 204 to finalize the chassis...",
+    "body": "<p>Hey Robotics Team,</p><p>Quick reminder that we will meet this Thursday, November 8th, at 3:30 PM in Room 204. We'll be calibrating the autonomous sensors and final assembly on the robot arm.</p><p>Please bring your lab notebooks. You can view the tournament schedule on our club site: <a href='https://oakridge-high.edu/clubs/robotics/schedule' class='simulated-link' data-target='https://oakridge-high.edu/clubs/robotics/schedule'>oakridge-high.edu/clubs/robotics/schedule</a>.</p><p>See everyone there!<br/>Coach Miller & Sarah (Club Lead)</p>",
+    "hoverUrl": "https://oakridge-high.edu/clubs/robotics/schedule",
+    "isPhishing": false,
+    "redFlags": [],
+    "explanation": "This is a legitimate email. The sender domain matches the school's official '.edu' domain, the link points directly to the school's HTTPS website, and it contains no coercive urgency or requests for credentials."
+  },
+  {
+    "id": "email_3",
+    "sender": "GameStream Rewards <no-reply@g4mestream-claim-free.xyz>",
+    "senderName": "GameStream Rewards",
+    "senderAddress": "no-reply@g4mestream-claim-free.xyz",
+    "subject": "🎉 CONGRATULATIONS! You won 10,000 Free V-Coins + Legendary Skin!",
+    "date": "Today, 11:05 AM",
+    "preview": "You were randomly chosen in our weekly gamer giveaway! Claim your gift package before it expires...",
+    "body": "<p>Hey Legend Gamer!</p><p>You were randomly chosen as today's Lucky Winner in the GameStream Worldwide Giveaway!</p><p>Your gift box contains: <strong>10,000 V-Coins</strong>, a <strong>Mythic Dragon Skin</strong>, and <strong>3 Months Premium Pass</strong>.</p><p style='text-align:center; margin: 20px 0;'><a href='http://claim-free-gaming-gift.xyz/redeem?user=winner' class='simulated-link' data-target='http://claim-free-gaming-gift.xyz/redeem?user=winner' style='background:#10b981; color:#000; padding:10px 18px; text-decoration:none; border-radius:6px; display:inline-block; font-weight:bold;'>CLAIM REWARDS NOW (ONLY 15 MIN LEFT)</a></p><p>To activate your reward, you'll need to enter your gaming password and link your authenticator.<br/>Don't miss out!</p>",
+    "hoverUrl": "http://claim-free-gaming-gift.xyz/redeem?user=winner",
+    "isPhishing": true,
+    "redFlags": [
+      "Too good to be true: offering free high-value game currency for a contest you never entered",
+      "Suspicious top-level domain '.xyz' and misleading sender address",
+      "Extreme urgency ('ONLY 15 MIN LEFT')",
+      "Asks for your gaming password and authenticator codes (legitimate rewards never ask for passwords!)"
+    ],
+    "explanation": "This is a gamer bait phishing attack. It uses free rewards to trick gamers into handing over account credentials and 2FA tokens so attackers can steal rare skins or accounts."
+  },
+  {
+    "id": "email_4",
+    "sender": "Public Library System <notices@citylibrary.org>",
+    "senderName": "Public Library System",
+    "senderAddress": "notices@citylibrary.org",
+    "subject": "Library Notice: Your reserved book 'Cybersecurity for Future Coders' is ready for pickup",
+    "date": "Yesterday, 02:15 PM",
+    "preview": "The hold on your requested title has arrived at the Main Branch. Please pick it up by Tuesday...",
+    "body": "<p>Hello Alex,</p><p>Your hold on the following item is now available for pickup at the <strong>Main Downtown Branch</strong>:</p><ul><li><strong>Title:</strong> Cybersecurity for Future Coders</li><li><strong>Author:</strong> Dr. Elena Vance</li><li><strong>Hold Shelf Expiration:</strong> November 13, 2026</li></ul><p>Please present your library card or student ID at the circulation desk. You can manage your holds online at <a href='https://citylibrary.org/my-account' class='simulated-link' data-target='https://citylibrary.org/my-account'>citylibrary.org/my-account</a>.</p><p>Thank you for using your City Library!</p>",
+    "hoverUrl": "https://citylibrary.org/my-account",
+    "isPhishing": false,
+    "redFlags": [],
+    "explanation": "This is a legitimate automated notice. The sender address is on the official library domain, addresses the cardholder by name, links to the genuine HTTPS library portal, and asks for no passwords."
+  },
+  {
+    "id": "email_5",
+    "sender": "FastShip Global Delivery <tracking-update@fastship-parcel-tracking24.info>",
+    "senderName": "FastShip Global Delivery",
+    "senderAddress": "tracking-update@fastship-parcel-tracking24.info",
+    "subject": "Delivery Exception: Package #FS-928491 could not be delivered — address incomplete",
+    "date": "Today, 08:30 AM",
+    "preview": "Our courier attempted delivery of your parcel today but found an incorrect postal code. Pay the $1.99 redelivery fee...",
+    "body": "<p>Attention Recipient,</p><p>Our courier attempted to deliver your package (Tracking: #FS-928491) today at 07:45 AM, but was unable to complete the delivery due to an incorrect house number.</p><p>To reschedule delivery, please update your street address and pay the <strong>$1.99 redelivery processing fee</strong> using our secure terminal:</p><p style='text-align:center; margin: 20px 0;'><a href='http://parcel-redeliver-fee-update.info/checkout' class='simulated-link' data-target='http://parcel-redeliver-fee-update.info/checkout' style='background:#f59e0b; color:#000; padding:10px 18px; text-decoration:none; border-radius:6px; display:inline-block; font-weight:bold;'>Update Address & Reschedule Delivery</a></p><p>If the fee is not cleared within 48 hours, the package will be destroyed in accordance with postal regulations.</p>",
+    "hoverUrl": "http://parcel-redeliver-fee-update.info/checkout",
+    "isPhishing": true,
+    "redFlags": [
+      "Vague package information with no mention of what was ordered or who sent it",
+      "Asks for a small fee ($1.99) — a classic tactic to steal credit card numbers and CVV codes",
+      "Suspicious '.info' domain with hyphenated spoof name",
+      "Threatens extreme consequences ('package will be destroyed')"
+    ],
+    "explanation": "This is a parcel-delivery phishing scam. Fraudsters trick people waiting for packages into typing credit card numbers onto fake fee portals."
+  },
+  {
+    "id": "email_6",
+    "sender": "PayPaI Support <security-notice@paypa1-verification-center.com>",
+    "senderName": "PayPaI Support",
+    "senderAddress": "security-notice@paypa1-verification-center.com",
+    "subject": "Receipt for your payment of $489.99 to Digital Crypto Exchange LLC",
+    "date": "Today, 06:12 AM",
+    "preview": "Thank you for your order! Your payment has been authorized. If you did not make this purchase, call immediately...",
+    "body": "<p>Dear Customer,</p><p>Thank you for your order through PayPal. Here is your transaction summary:</p><ul><li><strong>Merchant:</strong> Digital Crypto Exchange LLC</li><li><strong>Amount:</strong> $489.99 USD</li><li><strong>Status:</strong> Completed</li></ul><p>If you authorized this purchase, no further action is required.</p><p style='background:#fee2e2; border-left:4px solid #ef4444; padding:12px; margin:16px 0; color:#991b1b;'><strong>Did you NOT authorize this charge?</strong> Call our Fraud Protection Help Desk immediately at <strong>1-800-555-0199</strong> or cancel the transaction online: <a href='http://cancel-unauthorized-payment-portal.com' class='simulated-link' data-target='http://cancel-unauthorized-payment-portal.com'>Cancel Transaction Here</a></p>",
+    "hoverUrl": "http://cancel-unauthorized-payment-portal.com",
+    "isPhishing": true,
+    "redFlags": [
+      "Typosquatting in the sender name: Notice the letter 'I' or number '1' used instead of 'l' (PayPaI / paypa1)",
+      "Fake invoice scare tactic: claims a high charge occurred so you panic and call or click",
+      "Link directs to an unauthorized third-party cancellation portal rather than paypal.com",
+      "Fake customer service hotline leads to a tech-support scammer call center"
+    ],
+    "explanation": "This is a reverse-charge phishing scam. The sender intentionally invents a fraudulent purchase to provoke the victim into rushing to cancel it, exposing their payment details."
+  },
+  {
+    "id": "email_7",
+    "sender": "Authenticator Service <no-reply@accounts.google.com>",
+    "senderName": "Account Security Team",
+    "senderAddress": "no-reply@accounts.google.com",
+    "subject": "Your single-use verification code is: 482910",
+    "date": "Just now, 12:01 PM",
+    "preview": "Use this code to complete your two-factor sign in. If you did not request this code, someone may have entered your email...",
+    "body": "<p>Hi Alex,</p><p>We received a sign-in request for your account from Chrome on Windows.</p><p style='font-size: 24px; font-weight:bold; letter-spacing:4px; text-align:center; background:#1e293b; padding:15px; border-radius:8px; color:#38bdf8;'>482910</p><p>This code will expire in 10 minutes.</p><p style='color:#64748b; font-size:13px;'>If you did not make this request, someone might be attempting to access your password. You should visit your account dashboard directly at <a href='https://myaccount.google.com/security' class='simulated-link' data-target='https://myaccount.google.com/security'>myaccount.google.com/security</a> and update your credentials.</p>",
+    "hoverUrl": "https://myaccount.google.com/security",
+    "isPhishing": false,
+    "redFlags": [],
+    "explanation": "This is a legitimate two-factor authentication email. It originates from the genuine 'accounts.google.com' domain, provides the requested code cleanly without asking you to reply or follow shady third-party links."
+  },
+  {
+    "id": "email_8",
+    "sender": "Principal Vance <principal@oakridge-district9-urgent.org>",
+    "senderName": "Principal Vance (School District)",
+    "senderAddress": "principal@oakridge-district9-urgent.org",
+    "subject": "CONFIDENTIAL: Urgent request for student council officers",
+    "date": "Today, 10:18 AM",
+    "preview": "I am in an administrative conference and cannot take calls. I need you to purchase 5 Apple gift cards for a school award...",
+    "body": "<p>Good morning Alex,</p><p>I am currently off-campus attending the regional school leadership summit and cannot access my phone or office desk.</p><p>I need a quick favor before 1:00 PM. We are presenting teacher appreciation awards today and I need someone to purchase <strong>five $50 Apple App Store gift cards</strong> right away.</p><p>Please purchase them from a convenience store nearby, scratch the silver coating on the back, and reply with clear photos of the claim codes. I will reimburse you with a school check as soon as I return tomorrow.</p><p>Keep this confidential so the surprise is not ruined!</p><p>Dr. William Vance<br/>District Principal</p>",
+    "hoverUrl": "",
+    "isPhishing": true,
+    "redFlags": [
+      "Authority impersonation (CEO / Principal fraud)",
+      "Excuse for being unreachable by voice ('in a conference and cannot take calls')",
+      "Classic gift card payment scam: gift cards cannot be reversed or traced",
+      "Demands secrecy ('Keep this confidential') to prevent the victim from asking others"
+    ],
+    "explanation": "This is an executive impersonation scam. Scammers pose as school leaders or bosses to coerce students or staff into purchasing untraceable gift cards."
+  },
+  {
+    "id": "email_9",
+    "sender": "CyberQuest Security HQ <cybot@cyberquest.local>",
+    "senderName": "CyBot Security System",
+    "senderAddress": "cybot@cyberquest.local",
+    "subject": "System Status: Mailbox Quarter detective challenge initialized",
+    "date": "Today, 12:00 PM",
+    "preview": "Welcome to the Phishing Detective terminal! Review every email carefully before submitting your verdict...",
+    "body": "<p>Greetings, Cyber Agent!</p><p>CyBot here. You are currently operating inside the <strong>Mailbox Quarter</strong> simulated training environment.</p><p>Remember the Golden Rules of Email Safety:</p><ul><li>Always inspect the true sender email address, not just the display name.</li><li>Hover over hyperlinks to verify where they actually lead before clicking.</li><li>Watch out for artificial panic, threats, or claims of unexpected free prizes.</li><li>Never send passwords, gift card codes, or verification pins via email.</li></ul><p>Good luck with your mission!</p>",
+    "hoverUrl": "",
+    "isPhishing": false,
+    "redFlags": [],
+    "explanation": "This is a legitimate system briefing message from your CyberQuest guide, CyBot. It contains educational tips with zero requests for sensitive credentials."
+  }
+]
+

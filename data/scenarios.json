@@ -1,0 +1,90 @@
+[
+  {
+    "id": "scenario_1",
+    "title": "The Open Gradebook Loophole",
+    "situation": "While working in the computer lab after hours, you notice the teacher's grading workstation is logged in with full administrative privileges. The teacher stepped out to the copy room, and the term's final exam answer key is open on screen.",
+    "dilemma": "Your friend whispers: 'Quick, snap a photo of the answer key with your phone! Nobody will ever know, and the whole group will pass the final!'",
+    "choices": [
+      {
+        "id": "c1_a",
+        "label": "Take a photo of the answer key and share it with friends.",
+        "isEthical": false,
+        "feedback": "UNETHICAL & ACADEMIC OFFENSE: Photographing and circulating an exam is unauthorized access and academic fraud. In many jurisdictions, unauthorized tampering or extraction of institutional records carries disciplinary suspension or expulsion.",
+        "score": 0
+      },
+      {
+        "id": "c1_b",
+        "label": "Lock the workstation screen and quietly notify the teacher when they return.",
+        "isEthical": true,
+        "feedback": "WHITE-HAT DEFENDER: Excellent ethical judgment! Locking the screen protects the teacher from unauthorized access by other students, and notifying them politely helps them remember to lock their screen in the future.",
+        "score": 50
+      },
+      {
+        "id": "c1_c",
+        "label": "Change someone's grade as a funny harmless prank.",
+        "isEthical": false,
+        "feedback": "ILLEGAL RECORD TAMPERING: Modifying academic records is considered computer fraud and breach of data integrity. There is no such thing as a 'harmless' unauthorized database alteration.",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "scenario_2",
+    "title": "The 'Free Game Cheat' Installer",
+    "situation": "You are playing your favorite multiplayer battle royale game. A player in your voice squad sends you a link: 'Download this awesome aim-assist and free skin cheat tool! But you must disable Windows Defender and Run as Administrator for it to work.'",
+    "dilemma": "You really want the exclusive rare skin, and your squad is pressuring you to download it right now.",
+    "choices": [
+      {
+        "id": "c2_a",
+        "label": "Disable Windows Defender, run as Administrator, and install the cheat.",
+        "isEthical": false,
+        "feedback": "MALWARE COMPROMISE & CHEATING: Disabling your antivirus and granting admin privileges to an untrusted executable is the #1 way info-stealers (RedLine, Lumma) infect gamers, stealing Discord tokens, browser cookies, and saved passwords.",
+        "score": 0
+      },
+      {
+        "id": "c2_b",
+        "label": "Decline the file, explain the trojan danger to your squad, and report cheating.",
+        "isEthical": true,
+        "feedback": "CYBER RESILIENCE: Outstanding! Cheats are frequently repackaged malware designed to turn your computer into a botnet zombie. Playing honestly and protecting your system is true cyber defense.",
+        "score": 50
+      },
+      {
+        "id": "c2_c",
+        "label": "Download it on a family member's work laptop instead to test if it's safe.",
+        "isEthical": false,
+        "feedback": "RECKLESS ENDANGERMENT: Installing unverified files on family or work machines risks enterprise data breaches, ransomware, and identity theft.",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "scenario_3",
+    "title": "Responsible Disclosure Dilemma",
+    "situation": "While creating an account on your community youth sports league website, you notice that altering the user ID number in the web address bar (from id=104 to id=105) displays another member's home address, phone number, and medical allergy records without asking for a password (an IDOR vulnerability).",
+    "dilemma": "What is the proper ethical hacker course of action?",
+    "choices": [
+      {
+        "id": "c3_a",
+        "label": "Write a script to scrape and download everyone's records and post them on social media to prove they have bad security.",
+        "isEthical": false,
+        "feedback": "BLACK-HAT DATA BREACH: Scraping and publicly publishing private data without consent is illegal doxxing and a data privacy violation, regardless of good intentions.",
+        "score": 0
+      },
+      {
+        "id": "c3_b",
+        "label": "Privately contact the website administrators with a clear vulnerability report so they can fix it.",
+        "isEthical": true,
+        "feedback": "RESPONSIBLE DISCLOSURE (WHITE-HAT): Textbook ethical hacker protocol! You documented the vulnerability without exploiting or copying private records, and privately reported it to the administrators to protect community members.",
+        "score": 50
+      },
+      {
+        "id": "c3_c",
+        "label": "Threaten the site owners that you will release the data unless they pay you in cryptocurrency.",
+        "isEthical": false,
+        "feedback": "CRIMINAL EXTORTION: Demanding payment in exchange for not exposing a flaw is felony cyber extortion (blackmail), carrying severe legal prosecution.",
+        "score": 0
+      }
+    ]
+  }
+]
+

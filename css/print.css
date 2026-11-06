@@ -1,0 +1,84 @@
+/* ==========================================================================
+   CyberQuest — Print Stylesheet (CyberGuardian Diploma)
+   Optimized for A4 landscape printing and PDF export.
+   ========================================================================== */
+
+@media print {
+  /* Hide Interactive Shell UI */
+  .cq-hud,
+  .cq-cybot,
+  .cq-city-list-nav,
+  .cq-skip-link,
+  .cq-offline-banner,
+  .cq-modal__close,
+  .cq-modal__footer,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+
+  /* Printable Diploma Container */
+  .cq-diploma-print-view {
+    display: block !important;
+    width: 100% !important;
+    border: 8px double #1e293b !important;
+    padding: 30px !important;
+    text-align: center !important;
+    font-family: Georgia, serif !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .cq-diploma-print-view h1 {
+    font-size: 28pt !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 5px !important;
+    color: #0f172a !important;
+  }
+
+  .cq-diploma-print-view h2 {
+    font-size: 16pt !important;
+    font-weight: normal !important;
+    color: #475569 !important;
+    margin-bottom: 25px !important;
+  }
+
+  .cq-diploma-print-view .cq-diploma-rank {
+    font-size: 22pt !important;
+    font-weight: bold !important;
+    color: #0369a1 !important;
+    margin: 15px 0 !important;
+    text-decoration: underline !important;
+  }
+
+  .cq-diploma-print-view .cq-diploma-text {
+    font-size: 12pt !important;
+    line-height: 1.6 !important;
+    max-width: 80% !important;
+    margin: 0 auto 30px auto !important;
+  }
+
+  .cq-diploma-print-view .cq-diploma-signatures {
+    display: flex !important;
+    justify-content: space-around !important;
+    margin-top: 40px !important;
+  }
+
+  .cq-diploma-print-view .cq-diploma-seal {
+    font-size: 40pt !important;
+  }
+}
+

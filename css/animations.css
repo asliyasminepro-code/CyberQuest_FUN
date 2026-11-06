@@ -57,18 +57,6 @@
   }
 }
 
-/* CyBot Speech Bubble Pop */
-@keyframes speechPop {
-  0% {
-    opacity: 0;
-    transform: translateY(10px) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 /* Modal Fade & Scale Entrance */
 @keyframes modalEnter {
   0% {
@@ -96,16 +84,6 @@
   }
 }
 
-/* Scanline Sweeper */
-@keyframes scanlineSweep {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(1000%);
-  }
-}
-
 /* Radar Beacon / Map Pin Pulse */
 @keyframes beaconPulse {
   0% {
@@ -113,7 +91,7 @@
     opacity: 1;
   }
   100% {
-    r: 22;
+    r: 24;
     opacity: 0;
   }
 }
@@ -128,7 +106,7 @@
   }
 }
 
-/* Fade in for views */
+/* View Fade In */
 @keyframes viewFadeIn {
   from {
     opacity: 0;
@@ -147,7 +125,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(80vh) rotate(720deg);
+    transform: translateY(85vh) rotate(720deg);
     opacity: 0;
   }
 }

@@ -1,0 +1,45 @@
+{
+  "appName": "CyberQuest",
+  "version": "1.0.0",
+  "inactivityTimeoutSeconds": 60,
+  "eventModeCountdownSeconds": 15,
+  "ranks": [
+    {
+      "id": "recruit",
+      "title": "Recruit",
+      "minXp": 0,
+      "badge": "🔰",
+      "description": "CyberCity newcomer undergoing basic defense training."
+    },
+    {
+      "id": "agent",
+      "title": "Agent",
+      "minXp": 250,
+      "badge": "🛡️",
+      "description": "Field operative capable of identifying common cyber traps."
+    },
+    {
+      "id": "senior_agent",
+      "title": "Senior Agent",
+      "minXp": 600,
+      "badge": "⭐",
+      "description": "Experienced analyst skilled in vulnerability detection."
+    },
+    {
+      "id": "expert",
+      "title": "Expert",
+      "minXp": 1050,
+      "badge": "🎖️",
+      "description": "Advanced specialist resolving complex security dilemmas."
+    },
+    {
+      "id": "cyber_guardian",
+      "title": "CyberGuardian",
+      "minXp": 1500,
+      "badge": "👑",
+      "description": "Master defender. All districts secured, verified, and protected!",
+      "requiresAllDistricts": true
+    }
+  ]
+}
+

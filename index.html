@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CyberQuest — An interactive, educational cybersecurity game for kids and teens. Explore 8 districts, master cyber defense, and earn the rank of CyberGuardian.">
+  <meta name="theme-color" content="#0a0e17">
+  <title>CyberQuest — CyberCity Defense</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/city.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+  <!-- Keyboard Skip Link for Accessibility -->
+  <a href="#cq-view-container" class="cq-skip-link">Skip to main content</a>
+
+  <!-- File Protocol Warning Banner (Displayed only if opened directly via file://) -->
+  <div id="cq-protocol-banner" class="cq-offline-banner" role="alert">
+    ⚠️ <strong>Local Server Recommended:</strong> You opened CyberQuest directly via <code>file:///</code>. Modern browsers block ES Module imports and Service Workers on local files. For full gameplay, run via a local static server (e.g. VS Code Live Server or <code>python -m http.server</code>).
+  </div>
+
+  <!-- Accessible Screen Reader Live Announcer -->
+  <div id="cq-announcer" class="cq-sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Persistent Top HUD (Heads-Up Display) -->
+  <header class="cq-hud" role="banner">
+    <div class="cq-hud__container">
+      <!-- Logo / CyberCity Navigation -->
+      <a href="#/city" class="cq-hud__brand" id="cq-brand-home" aria-label="CyberQuest Home — CyberCity Map">
+        <span class="cq-hud__logo-icon" aria-hidden="true">🛡️</span>
+        <span class="cq-hud__brand-title">Cyber<span class="cq-hud__brand-accent">Quest</span></span>
+      </a>
+
+      <!-- Gamification Stats -->
+      <div class="cq-hud__stats" role="region" aria-label="Player Progress">
+        <div class="cq-hud__rank-badge" id="cq-hud-rank" title="Current Rank">
+          <span class="cq-hud__rank-icon" id="cq-hud-rank-icon">🔰</span>
+          <span class="cq-hud__rank-title" id="cq-hud-rank-title">Recruit</span>
+        </div>
+
+        <div class="cq-hud__xp-group">
+          <div class="cq-hud__xp-header">
+            <span>XP Progress</span>
+            <span class="cq-hud__xp-val" id="cq-hud-xp-val">0 / 1500 XP</span>
+          </div>
+          <div class="cq-hud__xp-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1500" id="cq-hud-xp-bar" aria-label="Experience Points">
+            <div class="cq-hud__xp-fill" id="cq-hud-xp-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action & Accessibility Controls -->
+      <nav class="cq-hud__actions" aria-label="Game Controls">
+        <button type="button" class="cq-hud__btn" id="cq-btn-sound" aria-label="Toggle Audio Sound Effects" title="Toggle Sound">
+          <span id="cq-sound-icon" aria-hidden="true">🔊</span>
+          <span class="cq-hud__btn-label">Sound</span>
+        </button>
+
+        <button type="button" class="cq-hud__btn" id="cq-btn-contrast" aria-label="Toggle High Contrast Mode" title="High Contrast Mode">
+          <span aria-hidden="true">👁️</span>
+          <span class="cq-hud__btn-label">Contrast</span>
+        </button>
+
+        <button type="button" class="cq-hud__btn cq-hud__btn--danger" id="cq-btn-reset" aria-label="New Player Reset" title="Clear Progress for New Player">
+          <span aria-hidden="true">🔄</span>
+          <span class="cq-hud__btn-label">New Player</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main View Container (Managed dynamically by Router) -->
+  <main id="cq-view-container" class="cq-app-main" tabindex="-1" role="main">
+    <!-- View templates injected dynamically by js/router.js -->
+  </main>
+
+  <!-- CyBot Tactical Companion Widget -->
+  <aside class="cq-cybot" id="cq-cybot" aria-label="CyBot Tactical Robot Guide">
+    <div class="cq-cybot__bubble cq-cybot__bubble--hidden" id="cq-cybot-bubble" role="status">
+      <div class="cq-cybot__bubble-header">
+        <span class="cq-cybot__bubble-title">CyBot Companion</span>
+        <button type="button" class="cq-cybot__close-btn" id="cq-cybot-dismiss" aria-label="Dismiss speech bubble">×</button>
+      </div>
+      <p class="cq-cybot__bubble-text" id="cq-cybot-text">Beep boop! Systems online.</p>
+    </div>
+
+    <button type="button" class="cq-cybot__avatar-btn" id="cq-cybot-trigger" aria-label="Ask CyBot for a Hint or Guidance" title="Click CyBot for Guidance">
+      <svg class="cq-cybot__svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- CyBot Head -->
+        <rect x="20" y="24" width="60" height="52" rx="14" fill="#121829" stroke="#00f0ff" stroke-width="4"/>
+        <!-- Antenna -->
+        <line x1="50" y1="24" x2="50" y2="10" stroke="#00f0ff" stroke-width="3"/>
+        <circle cx="50" cy="8" r="6" fill="#a855f7" class="cq-cybot__antenna"/>
+        <!-- Eyes -->
+        <circle cx="38" cy="46" r="7" fill="#00f0ff"/>
+        <circle cx="62" cy="46" r="7" fill="#00f0ff"/>
+        <!-- Mouth / Voice Visualizer -->
+        <rect x="36" y="60" width="28" height="6" rx="3" fill="#a855f7" class="cq-cybot__mouth"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Global Modal Dialog Backdrop (Accessible focus-trapped dialogs) -->
+  <div class="cq-modal-backdrop" id="cq-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cq-modal" id="cq-modal-dialog">
+      <div class="cq-modal__header">
+        <h2 class="cq-modal__title" id="cq-modal-title">Mission Briefing</h2>
+        <button type="button" class="cq-modal__close" id="cq-modal-close" aria-label="Close dialog">×</button>
+      </div>
+      <div class="cq-modal__body" id="cq-modal-body"></div>
+      <div class="cq-modal__footer" id="cq-modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
+

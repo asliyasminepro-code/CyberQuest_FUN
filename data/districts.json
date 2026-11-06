@@ -1,0 +1,99 @@
+[
+  {
+    "id": "phishing",
+    "name": "Mailbox Quarter",
+    "subtitle": "Phishing Detective",
+    "icon": "✉️",
+    "order": 1,
+    "baseXp": 150,
+    "color": "#38bdf8",
+    "tagline": "Investigate deceptive messages and spot digital traps.",
+    "description": "Inspect realistic emails, uncover spoofed sender addresses, check deceptive hover links, and flag dangerous traps before they catch you.",
+    "mapCoords": { "x": 18, "y": 32 }
+  },
+  {
+    "id": "password",
+    "name": "Vault District",
+    "subtitle": "Password Lab",
+    "icon": "🔐",
+    "order": 2,
+    "baseXp": 150,
+    "color": "#a855f7",
+    "tagline": "Craft impenetrable passphrases and master 2FA defenses.",
+    "description": "Analyze password entropy, test brute-force cracking estimates at 10 billion guesses/sec, and build memorable multi-word passphrases.",
+    "mapCoords": { "x": 38, "y": 22 }
+  },
+  {
+    "id": "ethical",
+    "name": "Firewall Fortress",
+    "subtitle": "Ethical Hacker Mission",
+    "icon": "🏰",
+    "order": 3,
+    "baseXp": 150,
+    "color": "#10b981",
+    "tagline": "Navigate real-world dilemmas with white-hat integrity.",
+    "description": "Face critical ethical hacking decisions: unauthenticated portals, peer password requests, and responsible vulnerability reporting.",
+    "mapCoords": { "x": 62, "y": 18 }
+  },
+  {
+    "id": "flaws",
+    "name": "Office Tower",
+    "subtitle": "Spot the Flaws",
+    "icon": "🏢",
+    "order": 4,
+    "baseXp": 150,
+    "color": "#f59e0b",
+    "tagline": "Inspect physical and digital workstations for vulnerabilities.",
+    "description": "Search an interactive school and office scene to spot hidden physical and digital security flaws before attackers exploit them.",
+    "mapCoords": { "x": 82, "y": 30 }
+  },
+  {
+    "id": "quiz",
+    "name": "Academy",
+    "subtitle": "Cybersecurity Quiz",
+    "icon": "🏛️",
+    "order": 5,
+    "baseXp": 150,
+    "color": "#00f0ff",
+    "tagline": "Demonstrate comprehensive cybersecurity knowledge.",
+    "description": "Put your cybersecurity knowledge to the test across malware, networking, defensive hygiene, and real-world response strategies.",
+    "mapCoords": { "x": 24, "y": 68 }
+  },
+  {
+    "id": "myths",
+    "name": "Myth Plaza",
+    "subtitle": "True or False",
+    "icon": "🔮",
+    "order": 6,
+    "baseXp": 150,
+    "color": "#ec4899",
+    "tagline": "Debunk widespread cybersecurity misconceptions.",
+    "description": "Separate online security facts from widespread myths in a rapid-fire card sorting challenge with CyBot's expert analysis.",
+    "mapCoords": { "x": 48, "y": 58 }
+  },
+  {
+    "id": "ai",
+    "name": "AI Lab",
+    "subtitle": "AI and Cybersecurity",
+    "icon": "🤖",
+    "order": 7,
+    "baseXp": 150,
+    "color": "#8b5cf6",
+    "tagline": "Unmask synthetic media and practice safe AI prompting.",
+    "description": "Analyze visual deepfakes, defend against AI-powered social engineering, and learn strict data boundaries for interacting with chatbots.",
+    "mapCoords": { "x": 72, "y": 62 }
+  },
+  {
+    "id": "bonus",
+    "name": "Bonus Alley",
+    "subtitle": "Quick Bonus Missions",
+    "icon": "⚡",
+    "order": 8,
+    "baseXp": 450,
+    "color": "#f97316",
+    "tagline": "Six rapid-fire tactical mini-challenges.",
+    "description": "Test evil twin Wi-Fi, QR code traps, mobile app permissions, oversharing risks, Caesar cipher decryption, and deepfake forensics.",
+    "mapCoords": { "x": 50, "y": 85 }
+  }
+]
+

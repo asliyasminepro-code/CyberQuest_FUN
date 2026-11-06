@@ -1,0 +1,193 @@
+/* ==========================================================================
+   CyberQuest — Top HUD (Heads-Up Display) Component
+   ========================================================================== */
+
+.cq-hud {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-hud);
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-2) var(--space-4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.cq-hud__container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* Brand / Home Link */
+.cq-hud__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-weight: 800;
+  font-size: var(--font-size-lg);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+.cq-hud__brand:focus-visible {
+  outline: 2px solid var(--color-cyan);
+}
+
+.cq-hud__logo-icon {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 6px var(--color-cyan));
+}
+
+.cq-hud__brand-accent {
+  color: var(--color-cyan);
+}
+
+/* Stats / Center */
+.cq-hud__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+  max-width: 540px;
+  margin: 0 var(--space-2);
+}
+
+/* Rank Badge */
+.cq-hud__rank-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-bright);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-cyan);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.cq-hud__rank-icon {
+  font-size: 1.1rem;
+}
+
+/* XP Group */
+.cq-hud__xp-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 140px;
+}
+
+.cq-hud__xp-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.cq-hud__xp-val {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.cq-hud__xp-track {
+  height: 9px;
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.cq-hud__xp-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-cyan), #3b82f6);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+  background-size: 200% 100%;
+  animation: xpShimmer 3s linear infinite;
+}
+
+/* Controls */
+.cq-hud__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.cq-hud__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  min-height: 34px;
+}
+
+.cq-hud__btn:hover {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+}
+
+.cq-hud__btn:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+.cq-hud__btn--active {
+  background: var(--color-cyan-dim);
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+}
+
+.cq-hud__btn--danger:hover {
+  background: var(--color-red-dim);
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+/* Responsive HUD */
+@media (max-width: 820px) {
+  .cq-hud {
+    padding: var(--space-2);
+  }
+  .cq-hud__brand-title {
+    display: none;
+  }
+  .cq-hud__rank-title {
+    display: none;
+  }
+  .cq-hud__btn-label {
+    display: none;
+  }
+}
+

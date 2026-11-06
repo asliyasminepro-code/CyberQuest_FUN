@@ -1,0 +1,140 @@
+/* ==========================================================================
+   CyberQuest — CyBot Mascot & Speech Bubble Component
+   ========================================================================== */
+
+.cq-cybot {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  z-index: var(--z-cybot);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+
+/* Floating Avatar */
+.cq-cybot__avatar-btn {
+  pointer-events: auto;
+  background: var(--color-bg-elevated);
+  border: 2px solid var(--color-cyan);
+  border-radius: var(--radius-full);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.4), var(--shadow-elevation);
+  animation: cybotFloat 4s ease-in-out infinite;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+  outline: none;
+  padding: 0;
+}
+
+.cq-cybot__avatar-btn:hover {
+  transform: scale(1.08);
+  border-color: #38bdf8;
+}
+
+.cq-cybot__avatar-btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.cq-cybot__svg {
+  width: 44px;
+  height: 44px;
+}
+
+/* Mood Indicators on CyBot SVG */
+.cq-cybot--talking .cq-cybot__mouth {
+  animation: cybotMouth 0.3s ease infinite alternate;
+}
+
+.cq-cybot--alert .cq-cybot__avatar-btn {
+  border-color: var(--color-yellow);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+}
+
+.cq-cybot--celebrating .cq-cybot__avatar-btn {
+  border-color: var(--color-green);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.7);
+}
+
+/* Speech Bubble */
+.cq-cybot__bubble {
+  pointer-events: auto;
+  max-width: 340px;
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-bright);
+  border-radius: var(--radius-lg);
+  border-bottom-right-radius: 4px;
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 15px rgba(0, 240, 255, 0.15);
+  animation: speechPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.cq-cybot__bubble--hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  pointer-events: none;
+}
+
+.cq-cybot__bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 4px;
+}
+
+.cq-cybot__bubble-title {
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-cyan);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.cq-cybot__close-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.cq-cybot__close-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.cq-cybot__bubble-text {
+  font-size: var(--font-size-sm);
+  line-height: 1.45;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Responsive CyBot */
+@media (max-width: 600px) {
+  .cq-cybot {
+    bottom: var(--space-2);
+    right: var(--space-2);
+  }
+  .cq-cybot__bubble {
+    max-width: 250px;
+    padding: var(--space-2) var(--space-3);
+  }
+}
+

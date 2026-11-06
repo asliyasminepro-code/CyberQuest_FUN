@@ -1,0 +1,91 @@
+[
+  {
+    "id": "flaw_sticky_note",
+    "title": "Password on Sticky Note",
+    "category": "Physical Security",
+    "x": 62,
+    "y": 44,
+    "icon": "📝",
+    "description": "A yellow adhesive sticky note stuck to the monitor bezel reading 'AdminPass2026!'.",
+    "explanation": "Writing passwords on sticky notes completely bypasses authentication security. Anyone walking by can read or photograph your password.",
+    "remediation": "Use a secure password manager or memorize a multi-word passphrase. Never write passwords in plain sight."
+  },
+  {
+    "id": "flaw_unlocked_screen",
+    "title": "Unattended Unlocked Computer",
+    "category": "Access Control",
+    "x": 48,
+    "y": 48,
+    "icon": "💻",
+    "description": "The workstation is logged into an administrative account, but the user stepped away without locking the screen.",
+    "explanation": "Leaving a device unlocked allows any passerby or bad actor to impersonate you, read confidential emails, or install rogue software in seconds.",
+    "remediation": "Always lock your workstation before stepping away (Windows Key + L or Command + Control + Q)."
+  },
+  {
+    "id": "flaw_rogue_usb",
+    "title": "Unidentified Rogue USB Drive",
+    "category": "Hardware & Malware",
+    "x": 34,
+    "y": 68,
+    "icon": "💾",
+    "description": "An unlabeled USB thumb drive found in the hallway is plugged directly into the front USB port.",
+    "explanation": "Unknown USB drives can execute automated keystroke attacks (BadUSB) or deliver spyware/ransomware the moment they are inserted.",
+    "remediation": "Never plug in unknown USB drives. Hand found drives to IT security or school staff for sandboxed inspection."
+  },
+  {
+    "id": "flaw_outdated_os",
+    "title": "Postponed Security Update",
+    "category": "System Vulnerability",
+    "x": 55,
+    "y": 38,
+    "icon": "⚠️",
+    "description": "A system tray notification: 'Critical security update postponed 42 days ago. System vulnerable.'",
+    "explanation": "Software updates patch known security holes. Postponing updates leaves devices vulnerable to automated malware exploits.",
+    "remediation": "Apply operating system and software patches promptly or enable automatic security updates."
+  },
+  {
+    "id": "flaw_insecure_http",
+    "title": "Unencrypted HTTP Login",
+    "category": "Network Security",
+    "x": 45,
+    "y": 35,
+    "icon": "🔓",
+    "description": "The browser address bar shows 'Not Secure' with an unencrypted http:// portal transmitting login credentials.",
+    "explanation": "Plain HTTP transmits passwords in readable cleartext over the network, allowing eavesdroppers on the local network to intercept them.",
+    "remediation": "Ensure websites use HTTPS (look for the secure lock icon) before entering any passwords or personal data."
+  },
+  {
+    "id": "flaw_unsecured_wifi",
+    "title": "Connected to Rogue Open Wi-Fi",
+    "category": "Wireless Security",
+    "x": 78,
+    "y": 28,
+    "icon": "📶",
+    "description": "The Wi-Fi tray shows connection to 'Free_Public_Internet_Unsecured' rather than the encrypted school network.",
+    "explanation": "Open Wi-Fi networks without encryption allow attackers to execute Man-in-the-Middle (MitM) attacks or host fake duplicate hotspots.",
+    "remediation": "Use official password-protected WPA2/WPA3 networks and utilize a trusted VPN when on public Wi-Fi."
+  },
+  {
+    "id": "flaw_trash_documents",
+    "title": "Sensitive Documents in Open Trash",
+    "category": "Data Handling",
+    "x": 22,
+    "y": 80,
+    "icon": "🗑️",
+    "description": "Printed sheets with student account credentials and network diagram blueprints discarded into an open recycle bin.",
+    "explanation": "Dumpster diving is a real-world reconnaissance technique where attackers search physical waste for sensitive credentials.",
+    "remediation": "Sensitive records, student IDs, and credentials must always be shredded in a cross-cut shredder."
+  },
+  {
+    "id": "flaw_uncovered_webcam",
+    "title": "Uncovered Webcam Pointed at Desk",
+    "category": "Privacy",
+    "x": 50,
+    "y": 25,
+    "icon": "📷",
+    "description": "A high-resolution external webcam with no physical privacy shutter pointed directly at the keyboard and desk.",
+    "explanation": "Spyware can silently activate webcams without warning indicator lights to spy on users or record keystrokes.",
+    "remediation": "Use a sliding physical webcam cover or unplug external cameras when not in use."
+  }
+]
+

@@ -1,0 +1,217 @@
+{
+  "challenges": [
+    {
+      "id": "evil_twin",
+      "title": "Evil Twin Wi-Fi",
+      "subtitle": "Network Defense",
+      "icon": "📶",
+      "baseXp": 50,
+      "bonusXp": 25,
+      "briefing": "Cybercriminals set up fake wireless access points with names almost identical to legitimate public networks to intercept your unencrypted internet traffic. Can you identify the secure connection from the rogue impostor?",
+      "scenario": "You are sitting in the Central City Public Library with your laptop. You open your Wi-Fi settings to connect to the internet. Four networks appear nearby.",
+      "networks": [
+        {
+          "id": "net_1",
+          "ssid": "CityLibrary_Official_WPA3",
+          "security": "WPA3 Enterprise (Encrypted)",
+          "signal": "95%",
+          "captivePortal": "Signed with citylibrary.gov certificate",
+          "isSafe": true,
+          "reason": "This is the legitimate network. It uses modern WPA3 encryption, strong signal, and is authenticated with an official government digital certificate."
+        },
+        {
+          "id": "net_2",
+          "ssid": "CityLibrary_FREE_WiFi_NoPassword",
+          "security": "Open (No Encryption)",
+          "signal": "98%",
+          "captivePortal": "Unsigned plain HTTP login page requesting email & social login",
+          "isSafe": false,
+          "reason": "This is an Evil Twin honeypot. It has no encryption, uses an all-caps misleading SSID, and hosts an unencrypted credential-harvesting captive portal."
+        },
+        {
+          "id": "net_3",
+          "ssid": "Public_Guest_Network_Fast",
+          "security": "Open (No Encryption)",
+          "signal": "45%",
+          "captivePortal": "None",
+          "isSafe": false,
+          "reason": "Completely unsecured open network from an unknown origin. Any eavesdropper within range can sniff unencrypted traffic."
+        },
+        {
+          "id": "net_4",
+          "ssid": "Library_Staff_Restricted",
+          "security": "WPA2 Enterprise (802.1X)",
+          "signal": "80%",
+          "captivePortal": "Employee smartcard requirement",
+          "isSafe": false,
+          "reason": "Legitimate but restricted to authorized staff. Students should not attempt unauthorized access to employee networks."
+        }
+      ]
+    },
+    {
+      "id": "qr_trap",
+      "title": "QR Code Trap",
+      "subtitle": "Quishing Defense",
+      "icon": "📷",
+      "baseXp": 50,
+      "bonusXp": 25,
+      "briefing": "Attackers paste fake QR code stickers over real physical posters and meters to redirect users to malicious websites ('Quishing'). Use your digital inspector to analyze the embedded link before opening!",
+      "posters": [
+        {
+          "id": "qr_1",
+          "title": "City Bike Rental Station",
+          "visual": "A physical bicycle dock with a QR code sticker that appears slightly peeling and misaligned.",
+          "decodedUrl": "http://bike-rental-fast-pay.info/unlock?meter=402",
+          "isSafe": false,
+          "explanation": "Malicious sticker placed over the real bike terminal. The URL uses unencrypted HTTP and a suspicious '.info' checkout domain designed to steal payment cards."
+        },
+        {
+          "id": "qr_2",
+          "title": "Museum Interactive Guide",
+          "visual": "A professionally printed brass plaque inside the modern art gallery with an etched QR code.",
+          "decodedUrl": "https://citymuseum.org/audio-tours/exhibit-14",
+          "isSafe": true,
+          "explanation": "Legitimate QR code etched directly onto the museum fixture, leading to the official museum HTTPS domain."
+        },
+        {
+          "id": "qr_3",
+          "title": "School Science Fair Schedule",
+          "visual": "A bulletin board flyer with an updated paper QR code taped over the original schedule.",
+          "decodedUrl": "http://tinyurl.com/free-roblox-gift-card-claim",
+          "isSafe": false,
+          "explanation": "A malicious prank/trap taped over school notices. The shortened link points to a known gaming credential phishing scam."
+        },
+        {
+          "id": "qr_4",
+          "title": "Transit Bus Arrival Times",
+          "visual": "A digital transit screen displaying a dynamically generated QR code for live bus tracking.",
+          "decodedUrl": "https://transit.citygov.us/realtime/route-42",
+          "isSafe": true,
+          "explanation": "Authentic dynamic QR code displayed on an authorized government transit terminal, pointing to the official citygov.us portal."
+        }
+      ]
+    },
+    {
+      "id": "app_permissions",
+      "title": "App Permissions",
+      "subtitle": "Mobile Security",
+      "icon": "📱",
+      "baseXp": 50,
+      "bonusXp": 25,
+      "briefing": "Mobile apps frequently demand excessive permissions that harvest private contacts, location, and recordings. Configure the permission toggles to uphold the Principle of Least Privilege!",
+      "apps": [
+        {
+          "id": "app_flashlight",
+          "name": "Super Bright Torch & Flashlight",
+          "icon": "🔦",
+          "permissions": [
+            { "id": "camera", "label": "Camera / Flash LED", "required": true, "tip": "Needed to physically control the camera LED hardware." },
+            { "id": "microphone", "label": "Microphone Audio Recording", "required": false, "tip": "Flashlights never need to listen to your voice or surroundings." },
+            { "id": "location", "label": "Precise GPS Location", "required": false, "tip": "Excessive tracking used for advertising broker sales." },
+            { "id": "contacts", "label": "Read Personal Contacts", "required": false, "tip": "Dangerous data harvesting." }
+          ]
+        },
+        {
+          "id": "app_maps",
+          "name": "Metro Navigator & Transit Map",
+          "icon": "🗺️",
+          "permissions": [
+            { "id": "location", "label": "Location While Using App", "required": true, "tip": "Essential to calculate directions from where you are." },
+            { "id": "storage", "label": "Storage Access (Offline Maps)", "required": true, "tip": "Saves offline transit maps to device memory." },
+            { "id": "sms", "label": "Read All SMS Text Messages", "required": false, "tip": "Maps have zero reason to inspect private text messages." },
+            { "id": "camera", "label": "Camera Access", "required": false, "tip": "Not needed for standard transit routing." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "privacy_oversharing",
+      "title": "Oversharing / Privacy",
+      "subtitle": "Digital Footprint",
+      "icon": "🛡️",
+      "baseXp": 50,
+      "bonusXp": 25,
+      "briefing": "Everything shared publicly becomes part of your permanent digital footprint. Attackers piece together clues from casual posts for identity theft and social engineering. Flag each post as Safe or Risky!",
+      "posts": [
+        {
+          "id": "post_1",
+          "author": "Alex_Gamer99",
+          "content": "Excited for vacation! Flying to London on Flight BA219, here is my boarding pass! ✈️ (Full barcode & passport name visible)",
+          "isRisky": true,
+          "explanation": "Boarding pass barcodes store your frequent flyer number, passport details, and passenger record locator, allowing anyone to modify your flight or steal identity data."
+        },
+        {
+          "id": "post_2",
+          "author": "Alex_Gamer99",
+          "content": "Finished my digital painting in art class today! What do you guys think? 🎨",
+          "isRisky": false,
+          "explanation": "Safe to share! Creative artwork without personal identifiers, locations, or sensitive metadata."
+        },
+        {
+          "id": "post_3",
+          "author": "Alex_Gamer99",
+          "content": "Happy 10th Birthday to my favorite golden retriever, Barnaby! He has been my best buddy since elementary school! 🐕",
+          "isRisky": true,
+          "explanation": "First pet's name is the most common security recovery question on online accounts. Revealing pet names publicly gives attackers answers to password resets."
+        },
+        {
+          "id": "post_4",
+          "author": "Alex_Gamer99",
+          "content": "Parents are away in Chicago for the whole weekend, house all to myself! Party time! 🏠🎉",
+          "isRisky": true,
+          "explanation": "Broadcasting that a home is unoccupied or that you are alone invites physical burglary and targeted stalking."
+        }
+      ]
+    },
+    {
+      "id": "caesar_cipher",
+      "title": "Caesar Cipher",
+      "subtitle": "Cryptography",
+      "icon": "🏛️",
+      "baseXp": 50,
+      "bonusXp": 25,
+      "briefing": "Julius Caesar protected military dispatches by shifting each letter in the alphabet by a fixed secret number. Decode the intercepted adversary communication and transmit the response!",
+      "cipherKey": 3,
+      "ciphertext": "WKH FBHVW LV VDIH",
+      "plaintext": "THE QUEST IS SAFE",
+      "hint": "Each letter in the secret message was shifted forward by 3 positions (D -> A, E -> B, etc.). Rotate backward by 3!",
+      "explanation": "You decoded the cipher! Simple shift ciphers are easily broken today using letter frequency analysis, which is why modern computers use 256-bit AES mathematical encryption."
+    },
+    {
+      "id": "deepfake_detective",
+      "title": "Real or Deepfake",
+      "subtitle": "AI Forensics",
+      "icon": "🤖",
+      "baseXp": 50,
+      "bonusXp": 25,
+      "briefing": "Generative AI can fabricate hyper-realistic human portraits and cloned voices. Inspect visual forensic clues to separate authentic media from AI-generated deepfakes!",
+      "items": [
+        {
+          "id": "df_1",
+          "title": "Profile Portrait A",
+          "description": "Student avatar with asymmetrical earrings, blurred iris edge, and background bookshelf with nonsensical warped text.",
+          "isDeepfake": true,
+          "clues": [
+            "Mismatched or melting jewelry earrings",
+            "Nonsensical distorted text on background objects",
+            "Irregular pupil reflections from ambient light"
+          ],
+          "explanation": "AI models struggle with subtle symmetrical physics, resulting in mismatched earrings and distorted background details."
+        },
+        {
+          "id": "df_2",
+          "title": "Profile Portrait B",
+          "description": "Photograph taken with crisp natural lighting, consistent skin pores, correct lens depth-of-field, and realistic eye reflections.",
+          "isDeepfake": false,
+          "clues": [
+            "Natural skin texture without artificial plastic blur",
+            "Consistent catchlights in both eyes matching room illumination",
+            "Physically accurate clothing fabric seams"
+          ],
+          "explanation": "This is an authentic human portrait. Note the natural skin texture and consistent lighting reflections across both eyes."
+        }
+      ]
+    }
+  ]
+}
+

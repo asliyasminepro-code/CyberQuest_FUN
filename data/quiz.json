@@ -1,0 +1,123 @@
+[
+  {
+    "id": "q1",
+    "question": "What is the primary difference between a computer virus and a computer worm?",
+    "options": [
+      "A virus requires a host file and human action to spread, while a worm replicates autonomously across networks.",
+      "A virus only targets smartphones, while a worm only targets servers.",
+      "A virus is hardware damage, while a worm is software damage.",
+      "There is no difference; they are identical terms."
+    ],
+    "correctIndex": 0,
+    "explanation": "A virus must attach to an executable host file and relies on human execution, whereas a worm travels autonomously across networks by exploiting unpatched vulnerabilities."
+  },
+  {
+    "id": "q2",
+    "question": "What does the 'S' in 'HTTPS' stand for, and what does it indicate?",
+    "options": [
+      "Speed — indicates a high-speed fiber connection.",
+      "Secure — indicates traffic between your browser and server is encrypted using TLS.",
+      "Server — indicates the site is hosted on a private cloud.",
+      "System — indicates the site is verified by an operating system."
+    ],
+    "correctIndex": 1,
+    "explanation": "HTTPS stands for HyperText Transfer Protocol Secure. The 'S' indicates Transport Layer Security (TLS) encryption, preventing snooping on login credentials."
+  },
+  {
+    "id": "q3",
+    "question": "Which of the following describes Multi-Factor Authentication (MFA/2FA)?",
+    "options": [
+      "Using two different web browsers at the same time.",
+      "Requiring at least two separate evidence categories: something you know, something you have, or something you are.",
+      "Typing your password twice in a row to confirm accuracy.",
+      "Changing your password every 14 days."
+    ],
+    "correctIndex": 1,
+    "explanation": "MFA requires verification across at least two independent authentication factors: Knowledge (password/PIN), Possession (phone/security key), or Inherence (biometrics/fingerprint)."
+  },
+  {
+    "id": "q4",
+    "question": "What is Ransomware?",
+    "options": [
+      "A free utility that cleans temporary junk files.",
+      "Malware that encrypts your files and demands payment to provide the decryption key.",
+      "Hardware that speeds up your Wi-Fi router.",
+      "A browser popup that reminds you to update your graphics driver."
+    ],
+    "correctIndex": 1,
+    "explanation": "Ransomware locks or encrypts personal files, school records, or hospital databases, demanding a ransom (often in cryptocurrency) to restore access."
+  },
+  {
+    "id": "q5",
+    "question": "What is the industry-standard '3-2-1' Data Backup Rule?",
+    "options": [
+      "3 passwords, 2 usernames, 1 computer.",
+      "3 total copies of data, on 2 different media types, with 1 copy stored offsite or in secure cloud storage.",
+      "Backing up data for 3 hours, twice a month, on 1 hard drive.",
+      "Saving 3 drafts of every school essay."
+    ],
+    "correctIndex": 1,
+    "explanation": "The 3-2-1 backup strategy ensures disaster recovery: 3 copies of important files (original + 2 backups), across 2 different storage media, with 1 kept offsite/cloud."
+  },
+  {
+    "id": "q6",
+    "question": "Why is public, unencrypted Wi-Fi at coffee shops or airports risky without a VPN?",
+    "options": [
+      "It consumes battery twice as fast.",
+      "Anyone nearby can intercept unencrypted data packets or operate an Evil Twin impersonator.",
+      "Public Wi-Fi turns off your monitor after 10 minutes.",
+      "It automatically deletes saved browser bookmarks."
+    ],
+    "correctIndex": 1,
+    "explanation": "Open Wi-Fi has no link-layer encryption. Malicious actors on the same network can intercept unencrypted traffic or stage Man-in-the-Middle (MitM) attacks."
+  },
+  {
+    "id": "q7",
+    "question": "What psychological tactic is MOST commonly used by phishing emails and phone scams?",
+    "options": [
+      "Extreme urgency, panic, or fear of negative consequences to prevent careful thinking.",
+      "Sending long, calm scientific research papers.",
+      "Writing emails entirely in poetic rhyming couplets.",
+      "Using slow postal mail delivery."
+    ],
+    "correctIndex": 0,
+    "explanation": "Scammers exploit cognitive panic (urgency, fear, or fake lottery prizes) to provoke an emotional knee-jerk reaction before the victim can pause and inspect red flags."
+  },
+  {
+    "id": "q8",
+    "question": "Why should you regularly install software and operating system updates?",
+    "options": [
+      "Only to change the desktop wallpaper color.",
+      "Because updates patch discovered security vulnerabilities that cybercriminals actively exploit.",
+      "To intentionally slow down older computer hardware.",
+      "Because software updates are legally mandatory in all countries."
+    ],
+    "correctIndex": 1,
+    "explanation": "Security patches fix discovered flaws (zero-days and known CVEs). Postponing updates leaves known backdoors open to automated exploit kits."
+  },
+  {
+    "id": "q9",
+    "question": "What is 'Shoulder Surfing' in cybersecurity terminology?",
+    "options": [
+      "Surfing on websites while listening to loud music.",
+      "Directly observing someone's screen or keyboard over their shoulder to steal PINs, passwords, or confidential data.",
+      "Using an ergonomic keyboard for better posture.",
+      "Sharing computer equipment in a gaming tournament."
+    ],
+    "correctIndex": 1,
+    "explanation": "Shoulder surfing is a direct physical observation technique where an attacker watches someone type a password, lock code, or ATM PIN in public."
+  },
+  {
+    "id": "q10",
+    "question": "What makes a 'Passphrase' (e.g. 'purple-orbit-guitar-river') superior to a traditional password (e.g. 'P@ssw0rd1')?",
+    "options": [
+      "Passphrases are shorter and therefore easier to type.",
+      "Passphrases achieve exponential length and high mathematical entropy while remaining easy for human memory to retain.",
+      "Passphrases can only be typed on smartphone keyboards.",
+      "Passphrases do not require internet access to create."
+    ],
+    "correctIndex": 1,
+    "explanation": "Length is the single most powerful factor in brute-force resistance ($S = C^L$). Multi-word passphrases deliver high entropy while being easy to remember without writing them on sticky notes."
+  }
+]
+
